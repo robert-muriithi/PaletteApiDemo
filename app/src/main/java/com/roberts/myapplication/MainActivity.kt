@@ -2,6 +2,7 @@ package com.roberts.myapplication
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.Log
@@ -44,8 +45,13 @@ class MainActivity : AppCompatActivity() {
 
             binding.lightMuted.apply {
 
-                Log.d(TAG, "createPaletteAsync: ${palette?.lightMutedSwatch?.rgb}")
-               // setBackgroundColor(palette?.lightMutedSwatch!!.rgb)
+                if(palette?.lightMutedSwatch != null){
+                    setBackgroundColor(palette?.lightMutedSwatch!!.rgb)
+                }
+                else{
+                    setBackgroundColor(Color.GRAY)
+                }
+               // Log.d(TAG, "createPaletteAsync: ${palette?.lightMutedSwatch?.rgb}")
             }
 
             binding.muted.apply {
